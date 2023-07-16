@@ -1,0 +1,110 @@
+/*
+ * Created by SharpDevelop.
+ * User: user
+ * Date: 07.07.2023
+ * Time: 15:29
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
+using System;
+
+namespace kakakakak
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			
+			Random ZweiZahl = new Random();
+			int zahL;
+			char NoYes;
+			//namen
+			Random names = new Random();
+			string[] Characters = {"Tighnari","Mona","Diluc","Dehya","Keqing","Qiqi","Jean"};
+			int ChaNam;
+			
+			//number
+			Random random = new Random();
+			int number;
+			
+			//hilfe
+			int total=0, totalM=0, numberZehler;
+			
+			
+			
+			number= random.Next(1,90);
+			//Console.WriteLine(number);
+			ChaNam = names.Next(Characters.Length);
+			//Console.WriteLine(Characters[ChaNam]);
+			Console.ReadLine();
+			Console.Clear();
+			
+			
+			
+			do
+			{
+				
+				
+				//#
+				Console.Write("1 wish      or          10 wish:  ");
+				numberZehler = Convert.ToInt16(Console.ReadLine());
+				Console.Clear();
+				//#
+				
+				if(numberZehler == 1 || numberZehler == 10)
+				{
+					total=total+numberZehler;
+					Console.WriteLine(total);
+					if(total >= number)
+					{
+						totalM=total-number;
+						Console.WriteLine("du gewinnst {0} mit {1} und {2}", Characters[ChaNam], number, totalM);
+						
+					}
+					
+					if(total >= number)
+					{
+						total=totalM;
+						
+						
+						number= random.Next(1,90);
+						Console.WriteLine(number);
+						zahL= ZweiZahl.Next(1,3);
+						
+						if(zahL == 2)
+						{
+							ChaNam = names.Next(Characters.Length);
+							Console.WriteLine(Characters[ChaNam]);
+							Console.ReadLine();
+							Console.Clear();
+						}
+						
+						if(zahL == 1)
+						{
+							Console.WriteLine("Eula");
+							Console.ReadLine();
+							Console.Clear();
+						}
+						
+						
+						
+						
+						
+					}
+				}
+				
+				
+				
+				Console.WriteLine("do you want wish agian? y/n: ");
+				NoYes= Convert.ToChar(Console.ReadLine());
+				Console.Clear();
+				
+			}
+			while(NoYes == 'y');
+			
+			
+			
+			Console.ReadKey(true);
+		}
+	}
+}
